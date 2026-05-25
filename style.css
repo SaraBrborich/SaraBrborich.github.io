@@ -189,7 +189,7 @@ footer {
   width: 180px !important;
   height: auto !important;
   max-width: 180px !important;
-  border-radius: 12px;
+  border-radius: 0;
   border: 1px solid var(--line);
   box-shadow: 0 10px 28px rgba(60, 40, 50, 0.10);
 }
