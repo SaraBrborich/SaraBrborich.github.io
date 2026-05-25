@@ -191,7 +191,7 @@ footer {
   max-width: 180px !important;
   max-height: 180px !important;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 0%;
   border: 1px solid var(--line);
   box-shadow: 0 10px 28px rgba(60, 40, 50, 0.10);
 }
