@@ -168,26 +168,7 @@ footer {
   font-size: 0.9rem;
 }
 
-@media (max-width: 650px) {
-  .container {
-    padding: 28px 16px;
-  }
-
-  header {
-    padding: 26px 22px;
-  }
-
-  h1 {
-    font-size: 2.25rem;
-  }
-}
-
-.home-intro {
-  display: grid;
-  grid-template-columns: 190px 1fr;
-  gap: 28px;
-  align-items: start;
-}
+/* Home page */
 
 .home-intro {
   display: grid;
@@ -207,16 +188,7 @@ footer {
   margin-top: 4px;
 }
 
-@media (max-width: 650px) {
-  .home-intro {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-photo {
-    width: 155px;
-    height: 155px;
-  }
-}
+/* Conferences page */
 
 .conference {
   margin-bottom: 34px;
@@ -245,26 +217,25 @@ footer {
   box-shadow: 0 8px 22px rgba(60, 40, 50, 0.05);
 }
 
-@media (max-width: 750px) {
-  .image-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .image-grid img {
-    height: auto;
-  }
-}
+/* General text utilities */
 
 .wide-text {
   max-width: none;
 }
 
-.outside-section {
-  margin-bottom: 28px;
+/* Outside Research page */
+
+.outside-section.card {
+  margin-bottom: 34px;
+  padding: 18px 20px;
 }
 
 .outside-text p {
   max-width: none;
+}
+
+.outside-section .carousel {
+  margin-top: 18px;
 }
 
 .carousel {
@@ -283,20 +254,11 @@ footer {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   padding: 4px 2px 12px 2px;
+  scrollbar-width: none;
 }
 
 .carousel-track::-webkit-scrollbar {
-  height: 8px;
-}
-
-.carousel-track::-webkit-scrollbar-track {
-  background: var(--accent-soft);
-  border-radius: 999px;
-}
-
-.carousel-track::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 999px;
+  display: none;
 }
 
 .carousel-image {
@@ -337,7 +299,17 @@ footer {
   right: -10px;
 }
 
+/* Responsive design */
+
 @media (max-width: 750px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid img {
+    height: auto;
+  }
+
   .carousel-image {
     flex: 0 0 80%;
     height: 190px;
@@ -352,19 +324,26 @@ footer {
   }
 }
 
-.carousel-track {
-  scrollbar-width: none;
-}
+@media (max-width: 650px) {
+  .container {
+    padding: 28px 16px;
+  }
 
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
+  header {
+    padding: 26px 22px;
+  }
 
-.outside-section.card {
-  margin-bottom: 34px;
-  padding: 18px 20px;
-}
+  h1 {
+    font-size: 2.25rem;
+  }
 
-.outside-section .carousel {
-  margin-top: 18px;
+  .home-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo {
+    width: 155px !important;
+    max-width: 155px !important;
+    height: auto !important;
+  }
 }
