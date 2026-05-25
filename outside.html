@@ -151,31 +151,53 @@
 
   </div>
 
-  <script>
-    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-      const track = carousel.querySelector(".carousel-track");
-      const prevButton = carousel.querySelector(".prev");
-      const nextButton = carousel.querySelector(".next");
+<script>
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const prevButton = carousel.querySelector(".prev");
+    const nextButton = carousel.querySelector(".next");
 
-      function getScrollAmount() {
-        return track.clientWidth * 0.8;
-      }
+    function getScrollAmount() {
+      return track.clientWidth * 0.8;
+    }
 
-      prevButton.addEventListener("click", () => {
+    function isAtEnd() {
+      return track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
+    }
+
+    function isAtStart() {
+      return track.scrollLeft <= 5;
+    }
+
+    prevButton.addEventListener("click", () => {
+      if (isAtStart()) {
+        track.scrollTo({
+          left: track.scrollWidth,
+          behavior: "smooth"
+        });
+      } else {
         track.scrollBy({
           left: -getScrollAmount(),
           behavior: "smooth"
         });
-      });
+      }
+    });
 
-      nextButton.addEventListener("click", () => {
+    nextButton.addEventListener("click", () => {
+      if (isAtEnd()) {
+        track.scrollTo({
+          left: 0,
+          behavior: "smooth"
+        });
+      } else {
         track.scrollBy({
           left: getScrollAmount(),
           behavior: "smooth"
         });
-      });
+      }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
