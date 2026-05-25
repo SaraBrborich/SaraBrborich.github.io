@@ -9,6 +9,11 @@
   --card: #ffffff;
 }
 
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
