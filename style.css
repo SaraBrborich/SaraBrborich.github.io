@@ -176,3 +176,30 @@ footer {
     font-size: 2.25rem;
   }
 }
+
+.home-intro {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(60, 40, 50, 0.10);
+}
+
+@media (max-width: 650px) {
+  .home-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo {
+    width: 155px;
+    height: 155px;
+  }
+}
