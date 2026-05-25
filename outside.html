@@ -48,19 +48,16 @@
         </div>
 
         <div class="carousel" data-carousel>
-          <button class="carousel-button prev" aria-label="Previous image">‹</button>
-
+          <button class="carousel-button prev" aria-label="Previous images">‹</button>
+        
           <div class="carousel-track">
-            <img src="images/outside/music-1.jpg" alt="Music and concerts image 1" class="carousel-image active" />
+            <img src="images/outside/music-1.jpg" alt="Music and concerts image 1" class="carousel-image" />
             <img src="images/outside/music-2.jpg" alt="Music and concerts image 2" class="carousel-image" />
             <img src="images/outside/music-3.jpg" alt="Music and concerts image 3" class="carousel-image" />
           </div>
-
-          <button class="carousel-button next" aria-label="Next image">›</button>
-
-          <div class="carousel-dots"></div>
+        
+          <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
-      </div>
 
       <div class="outside-section card">
         <div class="outside-text">
@@ -73,19 +70,16 @@
         </div>
 
         <div class="carousel" data-carousel>
-          <button class="carousel-button prev" aria-label="Previous image">‹</button>
-
+          <button class="carousel-button prev" aria-label="Previous images">‹</button>
+        
           <div class="carousel-track">
-            <img src="images/outside/sports-1.JPG" alt="Sports and outdoors image 1" class="carousel-image active" />
+            <img src="images/outside/sports-1.JPG" alt="Sports and outdoors image 1" class="carousel-image" />
             <img src="images/outside/sports-2.JPG" alt="Sports and outdoors image 2" class="carousel-image" />
             <img src="images/outside/sports-3.jpg" alt="Sports and outdoors image 3" class="carousel-image" />
           </div>
-
-          <button class="carousel-button next" aria-label="Next image">›</button>
-
-          <div class="carousel-dots"></div>
+        
+          <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
-      </div>
 
       <div class="outside-section card">
         <div class="outside-text">
@@ -98,20 +92,17 @@
         </div>
 
         <div class="carousel" data-carousel>
-          <button class="carousel-button prev" aria-label="Previous image">‹</button>
-
+          <button class="carousel-button prev" aria-label="Previous images">‹</button>
+        
           <div class="carousel-track">
-            <img src="images/outside/photo-1.jpg" alt="Photography and places image 1" class="carousel-image active" />
+            <img src="images/outside/photo-1.jpg" alt="Photography and places image 1" class="carousel-image" />
             <img src="images/outside/photo-2.jpg" alt="Photography and places image 2" class="carousel-image" />
             <img src="images/outside/photo-3.jpg" alt="Photography and places image 3" class="carousel-image" />
             <img src="images/outside/photo-4.jpg" alt="Photography and places image 4" class="carousel-image" />
           </div>
-
-          <button class="carousel-button next" aria-label="Next image">›</button>
-
-          <div class="carousel-dots"></div>
+        
+          <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
-      </div>
 
       <div class="outside-section card">
         <div class="outside-text">
@@ -132,20 +123,17 @@
         </div>
 
         <div class="carousel" data-carousel>
-          <button class="carousel-button prev" aria-label="Previous image">‹</button>
-
+          <button class="carousel-button prev" aria-label="Previous images">‹</button>
+        
           <div class="carousel-track">
-            <img src="images/outside/stories-1.jpg" alt="Stories, mysteries, and galaxies image 1" class="carousel-image active" />
+            <img src="images/outside/stories-1.jpg" alt="Stories, mysteries, and galaxies image 1" class="carousel-image" />
             <img src="images/outside/stories-2.jpg" alt="Stories, mysteries, and galaxies image 2" class="carousel-image" />
             <img src="images/outside/stories-3.jpg" alt="Stories, mysteries, and galaxies image 3" class="carousel-image" />
             <img src="images/outside/stories-4.jpg" alt="Stories, mysteries, and galaxies image 4" class="carousel-image" />
           </div>
-
-          <button class="carousel-button next" aria-label="Next image">›</button>
-
-          <div class="carousel-dots"></div>
+        
+          <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
-      </div>
     </section>
 
     <footer>
@@ -154,47 +142,31 @@
 
   </div>
 
-  <script>
-    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-      const images = carousel.querySelectorAll(".carousel-image");
-      const prevButton = carousel.querySelector(".prev");
-      const nextButton = carousel.querySelector(".next");
-      const dotsContainer = carousel.querySelector(".carousel-dots");
-      let currentIndex = 0;
+<script>
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const prevButton = carousel.querySelector(".prev");
+    const nextButton = carousel.querySelector(".next");
 
-      images.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.classList.add("carousel-dot");
-        dot.setAttribute("aria-label", `Go to image ${index + 1}`);
-        if (index === 0) dot.classList.add("active");
+    function getScrollAmount() {
+      return track.clientWidth * 0.8;
+    }
 
-        dot.addEventListener("click", () => {
-          showImage(index);
-        });
-
-        dotsContainer.appendChild(dot);
-      });
-
-      const dots = carousel.querySelectorAll(".carousel-dot");
-
-      function showImage(index) {
-        images[currentIndex].classList.remove("active");
-        dots[currentIndex].classList.remove("active");
-
-        currentIndex = (index + images.length) % images.length;
-
-        images[currentIndex].classList.add("active");
-        dots[currentIndex].classList.add("active");
-      }
-
-      prevButton.addEventListener("click", () => {
-        showImage(currentIndex - 1);
-      });
-
-      nextButton.addEventListener("click", () => {
-        showImage(currentIndex + 1);
+    prevButton.addEventListener("click", () => {
+      track.scrollBy({
+        left: -getScrollAmount(),
+        behavior: "smooth"
       });
     });
-  </script>
+
+    nextButton.addEventListener("click", () => {
+      track.scrollBy({
+        left: getScrollAmount(),
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
+        
 </body>
 </html>
