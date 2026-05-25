@@ -258,3 +258,93 @@ footer {
 .wide-text {
   max-width: none;
 }
+
+.outside-section {
+  margin-bottom: 28px;
+}
+
+.outside-text p {
+  max-width: none;
+}
+
+.carousel {
+  position: relative;
+  margin-top: 18px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 360px;
+}
+
+.carousel-image {
+  display: none;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.carousel-image.active {
+  display: block;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  border: none;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--accent);
+  font-size: 2rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(60, 40, 50, 0.15);
+}
+
+.carousel-button:hover {
+  background: white;
+}
+
+.carousel-button.prev {
+  left: 14px;
+}
+
+.carousel-button.next {
+  right: 14px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 0;
+  background: #fff;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border: none;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+}
+
+@media (max-width: 750px) {
+  .carousel-track,
+  .carousel-image {
+    height: 260px;
+  }
+}
