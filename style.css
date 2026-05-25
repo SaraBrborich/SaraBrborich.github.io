@@ -254,3 +254,7 @@ footer {
     height: auto;
   }
 }
+
+.wide-text {
+  max-width: none;
+}
