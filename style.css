@@ -351,3 +351,20 @@ footer {
     right: 4px;
   }
 }
+
+.carousel-track {
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.outside-section.card {
+  margin-bottom: 34px;
+  padding: 18px 20px;
+}
+
+.outside-section .carousel {
+  margin-top: 18px;
+}
