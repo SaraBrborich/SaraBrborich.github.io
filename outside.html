@@ -65,7 +65,7 @@
         <div class="outside-text">
           <h3>Sports and Outdoors</h3>
           <p>
-            Football is my favorite sport. I support Liga de Quito in Ecuador and Real Madrid in Spain. I also enjoy
+            Football is my favorite sport. I support <em>Liga de Quito<em> in Ecuador and <em>Real Madrid<em> in Spain. I also enjoy
             staying active through exercise, hiking, and spending time outdoors. Movement helps me clear my mind and
             return to work with better energy.
           </p>
@@ -115,7 +115,7 @@
         <div class="outside-text">
           <h3>Stories, Mysteries, and Galaxies</h3>
           <p>
-            Outside research, I am drawn to stories where observation matters: clues, hidden motives, careful reasoning,
+            I am drawn to stories where observation matters: clues, hidden motives, careful reasoning,
             and good detective work. That is probably why I enjoy detective and crime shows such as <em>The Closer</em>,
             <em>The Mentalist</em>, <em>Castle</em>, <em>NCIS</em>, and <em>CSI</em>. <em>The Closer</em> is my favorite
             TV series, and my dog, Fritzi, is named after one of its characters.
@@ -134,10 +134,10 @@
 
           <div class="carousel-track">
             <img src="images/outside/stories-1.jpg" alt="Stories, mysteries, and galaxies image 1" class="carousel-image" />
-            <img src="images/outside/stories-2.jpg" alt="Stories, mysteries, and galaxies image 2" class="carousel-image" />
+            <img src="images/outside/stories-2.jpg" alt="Stories, mysteries, and galaxies image 2" class="carousel-image" />            
+            <img src="images/outside/stories-5.jpg" alt="Stories, mysteries, and galaxies image 5" class="carousel-image" />
             <img src="images/outside/stories-3.jpg" alt="Stories, mysteries, and galaxies image 3" class="carousel-image" />
             <img src="images/outside/stories-4.jpg" alt="Stories, mysteries, and galaxies image 4" class="carousel-image" />
-            <img src="images/outside/stories-5.jpg" alt="Stories, mysteries, and galaxies image 5" class="carousel-image" />
           </div>
 
           <button class="carousel-button next" aria-label="Next images">›</button>
@@ -157,44 +157,66 @@
     const prevButton = carousel.querySelector(".prev");
     const nextButton = carousel.querySelector(".next");
 
-    function getScrollAmount() {
-      return track.clientWidth * 0.8;
-    }
+    const originalImages = Array.from(track.children);
 
-    function isAtEnd() {
-      return track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
-    }
-
-    function isAtStart() {
-      return track.scrollLeft <= 5;
-    }
-
-    prevButton.addEventListener("click", () => {
-      if (isAtStart()) {
-        track.scrollTo({
-          left: track.scrollWidth,
-          behavior: "smooth"
-        });
-      } else {
-        track.scrollBy({
-          left: -getScrollAmount(),
-          behavior: "smooth"
-        });
-      }
+    originalImages.forEach((image) => {
+      const clone = image.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
     });
 
-    nextButton.addEventListener("click", () => {
-      if (isAtEnd()) {
-        track.scrollTo({
-          left: 0,
-          behavior: "smooth"
-        });
-      } else {
-        track.scrollBy({
-          left: getScrollAmount(),
-          behavior: "smooth"
-        });
+    function getStepSize() {
+      const firstImage = track.querySelector(".carousel-image");
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return firstImage.offsetWidth + gap;
+    }
+
+    function getOriginalWidth() {
+      return getStepSize() * originalImages.length;
+    }
+
+    function normalizeScroll() {
+      const originalWidth = getOriginalWidth();
+
+      if (track.scrollLeft >= originalWidth) {
+        track.scrollLeft = track.scrollLeft - originalWidth;
       }
+
+      if (track.scrollLeft < 0) {
+        track.scrollLeft = track.scrollLeft + originalWidth;
+      }
+    }
+
+    nextButton.addEventListener("click", () => {
+      const step = getStepSize();
+
+      track.scrollBy({
+        left: step,
+        behavior: "smooth"
+      });
+
+      setTimeout(normalizeScroll, 450);
+    });
+
+    prevButton.addEventListener("click", () => {
+      const step = getStepSize();
+      const originalWidth = getOriginalWidth();
+
+      if (track.scrollLeft <= 5) {
+        track.scrollLeft = originalWidth;
+      }
+
+      track.scrollBy({
+        left: -step,
+        behavior: "smooth"
+      });
+
+      setTimeout(normalizeScroll, 450);
+    });
+
+    track.addEventListener("scroll", () => {
+      clearTimeout(track._scrollTimer);
+      track._scrollTimer = setTimeout(normalizeScroll, 120);
     });
   });
 </script>
