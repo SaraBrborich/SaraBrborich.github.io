@@ -50,6 +50,7 @@ h1 {
 .site-title {
   color: var(--text);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .site-title:hover {
@@ -227,13 +228,9 @@ footer {
   box-shadow: 0 8px 22px rgba(60, 40, 50, 0.05);
 }
 
-/* General text utilities */
-
 .wide-text {
   max-width: none;
 }
-
-/* Outside Research page */
 
 .outside-section.card {
   margin-bottom: 34px;
