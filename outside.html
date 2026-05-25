@@ -49,15 +49,16 @@
 
         <div class="carousel" data-carousel>
           <button class="carousel-button prev" aria-label="Previous images">‹</button>
-        
+
           <div class="carousel-track">
             <img src="images/outside/music-1.jpg" alt="Music and concerts image 1" class="carousel-image" />
             <img src="images/outside/music-2.jpg" alt="Music and concerts image 2" class="carousel-image" />
             <img src="images/outside/music-3.jpg" alt="Music and concerts image 3" class="carousel-image" />
           </div>
-        
+
           <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
+      </div>
 
       <div class="outside-section card">
         <div class="outside-text">
@@ -71,15 +72,16 @@
 
         <div class="carousel" data-carousel>
           <button class="carousel-button prev" aria-label="Previous images">‹</button>
-        
+
           <div class="carousel-track">
             <img src="images/outside/sports-1.JPG" alt="Sports and outdoors image 1" class="carousel-image" />
             <img src="images/outside/sports-2.JPG" alt="Sports and outdoors image 2" class="carousel-image" />
             <img src="images/outside/sports-3.jpg" alt="Sports and outdoors image 3" class="carousel-image" />
           </div>
-        
+
           <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
+      </div>
 
       <div class="outside-section card">
         <div class="outside-text">
@@ -93,16 +95,17 @@
 
         <div class="carousel" data-carousel>
           <button class="carousel-button prev" aria-label="Previous images">‹</button>
-        
+
           <div class="carousel-track">
             <img src="images/outside/photo-1.jpg" alt="Photography and places image 1" class="carousel-image" />
             <img src="images/outside/photo-2.jpg" alt="Photography and places image 2" class="carousel-image" />
             <img src="images/outside/photo-3.jpg" alt="Photography and places image 3" class="carousel-image" />
             <img src="images/outside/photo-4.jpg" alt="Photography and places image 4" class="carousel-image" />
           </div>
-        
+
           <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
+      </div>
 
       <div class="outside-section card">
         <div class="outside-text">
@@ -124,16 +127,17 @@
 
         <div class="carousel" data-carousel>
           <button class="carousel-button prev" aria-label="Previous images">‹</button>
-        
+
           <div class="carousel-track">
             <img src="images/outside/stories-1.jpg" alt="Stories, mysteries, and galaxies image 1" class="carousel-image" />
             <img src="images/outside/stories-2.jpg" alt="Stories, mysteries, and galaxies image 2" class="carousel-image" />
             <img src="images/outside/stories-3.jpg" alt="Stories, mysteries, and galaxies image 3" class="carousel-image" />
             <img src="images/outside/stories-4.jpg" alt="Stories, mysteries, and galaxies image 4" class="carousel-image" />
           </div>
-        
+
           <button class="carousel-button next" aria-label="Next images">›</button>
         </div>
+      </div>
     </section>
 
     <footer>
@@ -142,31 +146,31 @@
 
   </div>
 
-<script>
-  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-    const track = carousel.querySelector(".carousel-track");
-    const prevButton = carousel.querySelector(".prev");
-    const nextButton = carousel.querySelector(".next");
+  <script>
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector(".carousel-track");
+      const prevButton = carousel.querySelector(".prev");
+      const nextButton = carousel.querySelector(".next");
 
-    function getScrollAmount() {
-      return track.clientWidth * 0.8;
-    }
+      function getScrollAmount() {
+        return track.clientWidth * 0.8;
+      }
 
-    prevButton.addEventListener("click", () => {
-      track.scrollBy({
-        left: -getScrollAmount(),
-        behavior: "smooth"
+      prevButton.addEventListener("click", () => {
+        track.scrollBy({
+          left: -getScrollAmount(),
+          behavior: "smooth"
+        });
+      });
+
+      nextButton.addEventListener("click", () => {
+        track.scrollBy({
+          left: getScrollAmount(),
+          behavior: "smooth"
+        });
       });
     });
+  </script>
 
-    nextButton.addEventListener("click", () => {
-      track.scrollBy({
-        left: getScrollAmount(),
-        behavior: "smooth"
-      });
-    });
-  });
-</script>
-        
 </body>
 </html>
