@@ -1,29 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sara Brborich</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #222;
+      background-color: #fafafa;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 50px 25px;
+    }
+
+    header {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 25px;
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      font-size: 1.05rem;
+      color: #555;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin-right: 18px;
+      text-decoration: none;
+      color: #0056a6;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 38px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: normal;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #0056a6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .paper {
+      margin-bottom: 18px;
+    }
+
+    .paper-title {
+      font-weight: bold;
+    }
+
+    .paper-details {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      border-top: 1px solid #ddd;
+      margin-top: 45px;
+      padding-top: 18px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Sara Brborich</h1>
+  <div class="container">
 
-  <p>
-    I am an MSc Economics student at the University of Bonn and a Research Assistant
-    at the Institute for Macroeconomics and Econometrics.
-  </p>
+    <header>
+      <h1>Sara Brborich</h1>
+      <div class="subtitle">
+        MSc Economics Student, University of Bonn · Research Assistant, Institute for Macroeconomics and Econometrics
+      </div>
 
-  <p>
-    My research interests are in applied macroeconomics, with a focus on production
-    networks, firm dynamics, and income inequality.
-  </p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#code">Code</a>
+        <a href="files/Sara_Brborich_CV.pdf">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="files/Sara_Brborich_CV.pdf">CV</a></li>
-    <li><a href="https://github.com/SaraBrborich">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/sara-brborich/">LinkedIn</a></li>
-    <li><a href="mailto:sbrborich@uni-bonn.de">Email</a></li>
-  </ul>
+    <section id="about">
+      <h2>About</h2>
+
+      <p>
+        I am an MSc Economics student at the University of Bonn and a Research Assistant at the
+        Institute for Macroeconomics and Econometrics. Before moving to Bonn, I received my B.S.
+        in Economics from Universidad San Francisco de Quito, where I graduated Magna Cum Laude.
+      </p>
+
+      <p>
+        My research interests are in applied macroeconomics, with a focus on production networks,
+        firm dynamics, and income inequality. I am particularly interested in how firms respond to
+        economic shocks and how these shocks travel through markets, supply chains, and broader
+        production networks.
+      </p>
+
+      <p>
+        I enjoy working on projects that combine administrative data, applied econometrics, and
+        computational tools. More broadly, I like research questions where detailed empirical work
+        can help us better understand economic adjustment in emerging economies.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+
+      <div class="paper">
+        <div class="paper-title">
+          <a href="https://publications.iadb.org/en/network-transmission-fiscal-demand-shocks-commodity-dependent-economies">
+            Network Transmission of Fiscal Demand Shocks in Commodity-Dependent Economies
+          </a>
+        </div>
+        <div class="paper-details">
+          With Carlos Uribe-Terán, Wladimir Zanoni, Diego F. Grijalva, and Osmel Manzano.
+          IDB Working Paper No. IDB-WP-01793, Inter-American Development Bank, 2026.
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">
+          From Preferences to Reciprocity: Firm Adjustment after the EU–Ecuador Free Trade Agreement
+        </div>
+        <div class="paper-details">
+          With Carlos Uribe-Terán and Diego Grijalva.
+          Book chapter in <em>Las relaciones Ecuador–Unión Europea en el siglo XXI</em>.
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">
+          <a href="https://link.springer.com/content/pdf/10.1007/s10290-025-00582-8.pdf">
+            The Contractionary Effects of Protectionist Trade Policy
+          </a>
+        </div>
+        <div class="paper-details">
+          With Carlos Uribe-Terán, Ivan Gachet, and Diego Grijalva.
+          <em>Review of World Economics</em>, 161, 821–868, 2025.
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">
+          <a href="https://publications.iadb.org/en/how-do-trade-restrictions-affect-market-diversity">
+            How do Trade Restrictions Affect Market Diversity?
+          </a>
+        </div>
+        <div class="paper-details">
+          With Carlos Uribe-Terán, Diego F. Grijalva, and Iván Gachet.
+          IDB Working Paper No. IDB-WP-01687, Inter-American Development Bank, 2025.
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5351800">
+            Reallocation under Protectionism: Firm-Level Evidence from a Trade Shock
+          </a>
+        </div>
+        <div class="paper-details">
+          With Carlos Uribe-Terán, Diego F. Grijalva, and Ivan Gachet.
+          SSRN Working Paper, 2025.
+        </div>
+      </div>
+    </section>
+
+    <section id="code">
+      <h2>Code</h2>
+
+      <p>
+        I use Stata, R, Python, C++, MATLAB, Mata, LaTeX, and OCR-based data extraction tools
+        for research and data work.
+      </p>
+
+      <p>
+        Selected code and projects are available on my
+        <a href="https://github.com/SaraBrborich">GitHub profile</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <p>
+        Email: <a href="mailto:sbrborich@uni-bonn.de">sbrborich@uni-bonn.de</a><br />
+        GitHub: <a href="https://github.com/SaraBrborich">github.com/SaraBrborich</a><br />
+        LinkedIn: <a href="https://www.linkedin.com/in/sara-brborich/">linkedin.com/in/sara-brborich</a><br />
+        CV: <a href="files/Sara_Brborich_CV.pdf">Download CV</a>
+      </p>
+    </section>
+
+    <footer>
+      Last updated: 2026
+    </footer>
+
+  </div>
 </body>
 </html>
