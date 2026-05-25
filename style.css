@@ -47,6 +47,16 @@ h1 {
   letter-spacing: -0.03em;
 }
 
+.site-title {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-title:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
 .subtitle {
   margin-top: 9px;
   font-size: 1.05rem;
