@@ -164,67 +164,60 @@
     const prevButton = carousel.querySelector(".prev");
     const nextButton = carousel.querySelector(".next");
 
-    const originalImages = Array.from(track.children);
-
-    originalImages.forEach((image) => {
-      const clone = image.cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      track.appendChild(clone);
-    });
+    let isMoving = false;
 
     function getStepSize() {
       const firstImage = track.querySelector(".carousel-image");
       const gap = parseFloat(getComputedStyle(track).gap) || 0;
-      return firstImage.offsetWidth + gap;
+      return firstImage.getBoundingClientRect().width + gap;
     }
 
-    function getOriginalWidth() {
-      return getStepSize() * originalImages.length;
+    function moveNext() {
+      if (isMoving) return;
+      isMoving = true;
+
+      const step = getStepSize();
+      track.style.transition = "transform 0.35s ease";
+      track.style.transform = `translateX(-${step}px)`;
+
+      track.addEventListener("transitionend", function handler() {
+        track.removeEventListener("transitionend", handler);
+
+        track.appendChild(track.firstElementChild);
+
+        track.style.transition = "none";
+        track.style.transform = "translateX(0)";
+
+        track.offsetHeight;
+
+        track.style.transition = "transform 0.35s ease";
+        isMoving = false;
+      });
     }
 
-    function normalizeScroll() {
-      const originalWidth = getOriginalWidth();
+    function movePrev() {
+      if (isMoving) return;
+      isMoving = true;
 
-      if (track.scrollLeft >= originalWidth) {
-        track.scrollLeft = track.scrollLeft - originalWidth;
-      }
-
-      if (track.scrollLeft < 0) {
-        track.scrollLeft = track.scrollLeft + originalWidth;
-      }
-    }
-
-    nextButton.addEventListener("click", () => {
       const step = getStepSize();
 
-      track.scrollBy({
-        left: step,
-        behavior: "smooth"
+      track.style.transition = "none";
+      track.insertBefore(track.lastElementChild, track.firstElementChild);
+      track.style.transform = `translateX(-${step}px)`;
+
+      track.offsetHeight;
+
+      track.style.transition = "transform 0.35s ease";
+      track.style.transform = "translateX(0)";
+
+      track.addEventListener("transitionend", function handler() {
+        track.removeEventListener("transitionend", handler);
+        isMoving = false;
       });
+    }
 
-      setTimeout(normalizeScroll, 450);
-    });
-
-    prevButton.addEventListener("click", () => {
-      const step = getStepSize();
-      const originalWidth = getOriginalWidth();
-
-      if (track.scrollLeft <= 5) {
-        track.scrollLeft = originalWidth;
-      }
-
-      track.scrollBy({
-        left: -step,
-        behavior: "smooth"
-      });
-
-      setTimeout(normalizeScroll, 450);
-    });
-
-    track.addEventListener("scroll", () => {
-      clearTimeout(track._scrollTimer);
-      track._scrollTimer = setTimeout(normalizeScroll, 120);
-    });
+    nextButton.addEventListener("click", moveNext);
+    prevButton.addEventListener("click", movePrev);
   });
 </script>
 
