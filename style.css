@@ -336,11 +336,11 @@ footer {
 
 .modal-content {
   position: relative;
-  width: min(980px, 94vw);
+  width: min(760px, 70vw);
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 20px;
-  padding: 26px 28px 22px 28px;
+  padding: 24px 26px 20px 26px;
   box-shadow: 0 18px 55px rgba(30, 20, 30, 0.24);
 }
 
@@ -385,7 +385,7 @@ footer {
 
 .modal-slide img {
   width: 100%;
-  max-height: 620px;
+  max-height: 460px;
   object-fit: contain;
   display: block;
   border-radius: 14px;
@@ -542,6 +542,7 @@ footer {
   }
 
   .modal-content {
+    width: min(94vw, 760px);
     padding: 22px 18px 18px 18px;
   }
 
