@@ -55,9 +55,97 @@
             Network Transmission of Fiscal Demand Shocks in Commodity-Dependent Economies
           </a>
         </div>
+      
         <div class="paper-details">
-          With Carlos Uribe-Terán, Wladimir Zanoni, Diego F. Grijalva, and Osmel Manzano.
+          With Carlos Uribe-Terán, Wladimir Zanoni, Diego F. Grijalva, Sara Brborich, and Osmel Manzano.
           IDB Working Paper No. IDB-WP-01793, Inter-American Development Bank, 2026.
+        </div>
+      
+        <div class="research-buttons">
+          <button class="toggle-button" data-target="network-abstract">Abstract</button>
+          <button class="modal-button" data-modal="network-results-modal">Main results</button>
+          <button class="toggle-button" data-target="network-bibtex">BibTeX</button>
+          <a class="research-link-button" href="https://publications.iadb.org/en/network-transmission-fiscal-demand-shocks-commodity-dependent-economies" target="_blank" rel="noopener noreferrer">Paper</a>
+        </div>
+      
+        <div id="network-abstract" class="toggle-content">
+          <p>
+            We study how procurement-driven fiscal contractions propagate through firm-to-firm production networks.
+            The 2014 oil price collapse triggered a sharp fall in public procurement in Ecuador, generating an
+            externally driven fiscal demand shock. Using administrative data covering the formal-firm universe from
+            2012 to 2019, we construct exposure measures that trace the shock from government contractors to their
+            trading partners. Aggregating the causal estimates implies a network-adjusted fiscal multiplier of 1.95:
+            a one-dollar procurement reduction lowers aggregate value added by US$1.95, compared with US$1.18
+            when network propagation is ignored. Production linkages therefore account for about 39 percent of the
+            total response.
+          </p>
+        </div>
+      
+        <div id="network-bibtex" class="toggle-content">
+          <pre><code>@techreport{uribeteran2026network,
+        title       = {Network Transmission of Fiscal Demand Shocks in Commodity-Dependent Economies},
+        author      = {Uribe-Terán, Carlos and Zanoni, Wladimir and Grijalva, Diego F. and Brborich, Sara and Manzano, Osmel},
+        institution = {Inter-American Development Bank},
+        number      = {IDB-WP-01793},
+        year        = {2026}
+      }</code></pre>
+        </div>
+      </div>
+
+      <div id="network-results-modal" class="modal">
+        <div class="modal-content">
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+      
+          <h3>Network Transmission of Fiscal Demand Shocks in Commodity-Dependent Economies</h3>
+      
+          <div class="modal-carousel" data-modal-carousel>
+            <button class="modal-carousel-button prev" aria-label="Previous result">‹</button>
+
+            <div class="modal-slide active">
+              <img src="images/research/fiscal-networks-1.jpg" alt="Fiscal shock" />
+              <div class="modal-caption">
+                <h4>Fiscal shock</h4>
+                <p>Public purchases and capital expenditure fell sharply after the 2014 oil-price collapse.</p>
+              </div>
+            </div>
+            
+            <div class="modal-slide">
+              <img src="images/research/fiscal-networks-2.jpg" alt="State-centered network" />
+              <div class="modal-caption">
+                <h4>State-centered network</h4>
+                <p>The public sector was a central buyer, directly connected to around 40% of formal private firms.</p>
+              </div>
+            </div>
+            
+            <div class="modal-slide">
+              <img src="images/research/fiscal-networks-3.jpg" alt="Direct effects" />
+              <div class="modal-caption">
+                <h4>Direct effects</h4>
+                <p>State suppliers faced persistent declines in revenue, labor costs, and investment.</p>
+              </div>
+            </div>
+            
+            <div class="modal-slide">
+              <img src="images/research/fiscal-networks-4.jpg" alt="Upstream spillovers" />
+              <div class="modal-caption">
+                <h4>Upstream spillovers</h4>
+                <p>The fiscal contraction propagated to firms supplying state-dependent firms.</p>
+              </div>
+            </div>
+            
+            <div class="modal-slide">
+              <img src="images/research/fiscal-networks-5.jpg" alt="Fiscal multiplier" />
+              <div class="modal-caption">
+                <h4>Fiscal multiplier</h4>
+                <p>Network propagation increases the estimated multiplier from 1.19 to 1.95.</p>
+              </div>
+            </div>            
+            <button class="modal-carousel-button next" aria-label="Next result">›</button>
+          </div>
+      
+          <div class="modal-counter">
+            <span class="current-slide">1</span> / <span class="total-slides">5</span>
+          </div>
         </div>
       </div>
 
@@ -129,5 +217,93 @@
     </footer>
 
   </div>
+
+<script>
+  document.querySelectorAll(".toggle-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      const target = document.getElementById(targetId);
+
+      const isOpen = target.style.display === "block";
+
+      document.querySelectorAll(".toggle-content").forEach((content) => {
+        content.style.display = "none";
+      });
+
+      document.querySelectorAll(".toggle-button").forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      if (!isOpen) {
+        target.style.display = "block";
+        button.classList.add("active");
+      }
+    });
+  });
+
+  document.querySelectorAll(".modal-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const modalId = button.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  document.querySelectorAll(".modal").forEach((modal) => {
+    const closeButton = modal.querySelector(".modal-close");
+
+    closeButton.addEventListener("click", () => {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-modal-carousel]").forEach((carousel) => {
+    const slides = carousel.querySelectorAll(".modal-slide");
+    const prevButton = carousel.querySelector(".prev");
+    const nextButton = carousel.querySelector(".next");
+    const modal = carousel.closest(".modal");
+    const currentSlide = modal.querySelector(".current-slide");
+    const totalSlides = modal.querySelector(".total-slides");
+
+    let currentIndex = 0;
+    totalSlides.textContent = slides.length;
+
+    function showSlide(index) {
+      slides[currentIndex].classList.remove("active");
+      currentIndex = (index + slides.length) % slides.length;
+      slides[currentIndex].classList.add("active");
+      currentSlide.textContent = currentIndex + 1;
+    }
+
+    prevButton.addEventListener("click", () => {
+      showSlide(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      showSlide(currentIndex + 1);
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      document.querySelectorAll(".modal.open").forEach((modal) => {
+        modal.classList.remove("open");
+      });
+
+      document.body.style.overflow = "";
+    }
+  });
+</script>
+  
 </body>
 </html>
