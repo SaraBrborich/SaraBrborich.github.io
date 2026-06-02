@@ -89,6 +89,24 @@
           Local chair.
         </div>
 
+        <div class="research-buttons">
+          <button
+            class="modal-button"
+            type="button"
+            onclick="openPdfModal('Event schedule', 'files/organizing/EVENT%20SCHEDULE.pdf')"
+          >
+            Event schedule
+          </button>
+
+          <button
+            class="modal-button"
+            type="button"
+            onclick="openPdfModal('Event booklet', 'files/organizing/Folleto%20Congreso%20de%20Econom%C3%ADa.pdf')"
+          >
+            Event booklet
+          </button>
+        </div>
+
         <div class="image-grid">
           <img src="images/conferences/aecon-1.jpg" alt="Tercer Congreso Anual de la Asociación de Economía del Ecuador, image 1" />
           <img src="images/conferences/aecon-2.jpg" alt="Tercer Congreso Anual de la Asociación de Economía del Ecuador, image 2" />
@@ -112,5 +130,60 @@
     </footer>
 
   </div>
+
+  <div id="pdf-modal" class="pdf-modal">
+    <div class="pdf-modal-content">
+      <button class="pdf-modal-close" type="button" onclick="closePdfModal()">×</button>
+
+      <h3 id="pdf-modal-title">Document</h3>
+
+      <iframe
+        id="pdf-frame"
+        class="pdf-frame"
+        src=""
+        title="PDF viewer"
+      ></iframe>
+
+      <div class="pdf-modal-link">
+        <a id="pdf-open-link" href="#" target="_blank" rel="noopener noreferrer">
+          Open PDF in a new tab
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPdfModal(title, pdfUrl) {
+      const modal = document.getElementById("pdf-modal");
+      const frame = document.getElementById("pdf-frame");
+      const modalTitle = document.getElementById("pdf-modal-title");
+      const openLink = document.getElementById("pdf-open-link");
+
+      modalTitle.textContent = title;
+      frame.src = pdfUrl;
+      openLink.href = pdfUrl;
+      modal.classList.add("open");
+    }
+
+    function closePdfModal() {
+      const modal = document.getElementById("pdf-modal");
+      const frame = document.getElementById("pdf-frame");
+
+      modal.classList.remove("open");
+      frame.src = "";
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closePdfModal();
+      }
+    });
+
+    document.getElementById("pdf-modal").addEventListener("click", function(event) {
+      if (event.target === this) {
+        closePdfModal();
+      }
+    });
+  </script>
 </body>
 </html>
