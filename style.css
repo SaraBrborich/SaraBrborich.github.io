@@ -196,7 +196,7 @@ footer {
 }
 
 .footer-bgse-logo {
-  max-width: 150px;
+  width: 90px;
   height: auto;
   display: block;
   opacity: 0.9;
@@ -607,6 +607,6 @@ footer {
   }
 
   .footer-bgse-logo {
-    max-width: 130px;
+    width: 75px;
   }
 }
