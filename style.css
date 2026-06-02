@@ -578,3 +578,24 @@ footer {
     height: auto !important;
   }
 }
+
+.site-footer {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.last-updated {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer-bgse-logo {
+  max-width: 150px;
+  height: auto;
+  opacity: 0.9;
+}
