@@ -196,8 +196,8 @@ footer {
 }
 
 .footer-bgse-logo {
-  width: 90px;
-  height: auto;
+  width: auto;
+  height: 90px;
   display: block;
   opacity: 0.9;
 }
